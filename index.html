@@ -1,0 +1,1200 @@
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Anime/A - Anime - Fukou-Da!</title>
+<!--
+    OneManager: An index & manager of Onedrive auth by ysun.
+    HIT Gitlab: https://git.hit.edu.cn/ysun/OneManager-php
+    Github: https://github.com/qkqpttgf/OneManager-php
+-->
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="A, Anime, Fukou-Da!, OneManager">
+    <meta name="description" content="A, List">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <style type="text/css">
+        body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1em;color:#000;background-color:#f7f7f9;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;background-image:url("https://i.imgur.com/bdLYH19.png");}
+        a{color:#24292e;cursor:pointer;text-decoration:none}
+        ion-icon{font-size:15px;vertical-align:bottom}
+        .changelanguage{position:absolute;right:5px;}
+        .title{text-align:center;margin-top:1rem;letter-spacing:2px;margin-bottom:2rem}
+        .title a{color:#333;text-decoration:none}
+        .list-wrapper{width:80%;margin:0 auto 30px;position:relative;box-shadow:0 0 32px 0 rgb(128,128,128);border-radius:15px;}
+        .list-container{position:relative;/*overflow:hidden;*/border-radius:15px;background-color:rgba(245,245,245,0.5);}
+        .list-container,.list-header-container,.list-wrapper,a.back-link:hover,body{color:#24292e}
+        .list-header-container{position:relative}
+        .list-header-container a.back-link{color:#000;display:inline-block;position:absolute;font-size:16px;margin:20px 10px;padding:10px 10px;vertical-align:middle;text-decoration:none}
+        .table-header{margin:0;border:0 none;padding:30px 30px;text-align:left;font-weight:400;color:#000;word-break: break-all;word-wrap: break-word;}
+        .list-body-container{position:relative;left:0;box-sizing:border-box;/*overflow-x:hidden;overflow-y:auto;background:rgba(245,245,245,0.5)*/}
+        .more-disk{margin:0;border:0 none;padding:30px 30px;text-align:left;font-weight:400;color:#000;white-space:nowrap;overflow:auto;}
+        .more-disk a{margin:0 10px;padding:5px;transition-duration: 0.4s;border-radius: 12px; background-color: white; color: black; border: 2px solid rgba(85,85,85,0.7); }
+        .more-disk a:hover, .more-disk a[now]{ background-color: rgba(85,85,85,0.7); color: white; }
+        .list-table{width:100%;padding:0 20px 20px 20px;border-spacing:0}
+        .list-table tr{height:40px}
+        .list-table tr[data-to]:hover{background:rgba(85,85,85,0.7) !important;color:white;}
+        .list-table tr[data-to]:hover a{color:white}
+        .list-table tr:first-child{background:rgba(245,245,245,0)}
+        .list-table td,.list-table th{padding:0 10px;text-align:left}
+        .list-table .size,.list-table .updated_at{text-align:right}
+        .updated_at{width:25%}
+        .size{width:15%}
+        .mask{position:absolute;left:0px;top:0px;width:100%;background-color:#000;filter:alpha(opacity=50);opacity:0.5;z-index:2;}
+
+        .operatediv{position:absolute;border:1px #CCCCCC;background-color:#FFFFCC;z-index:2;}
+        .operatediv div{margin:16px}
+        .operatediv_close{position:absolute;right:3px;top:3px;}
+        .readme{padding:8px;}
+        .markdown-body, .customfile{padding:20px;text-align:left}
+        @media only screen and (orientation: portrait){
+
+            body{background-repeat:no-repeat;background-size:cover;background-attachment:fixed;background-image:url("https://i.imgur.com/ocrrZBZ.png");}
+
+            .title{margin-bottom:24px}
+            .list-wrapper{width:95%; margin-bottom:24px;}
+            .list-table {padding:8px}
+            .list-table td, .list-table th{white-space:nowrap;overflow:auto;max-width:80px}
+            .size, .updated_at{display:none}
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div style="padding:1px" id="top-div">
+
+        <a class="login" onclick="login();"><ion-icon name="log-in"></ion-icon>Login</a>
+
+
+        &nbsp;
+        <!--<select class="changelanguage" name="language" onchange="changelanguage(this.options[this.options.selectedIndex].value)">
+            <option value="">Language</option>
+
+                <option value="en-us" selected="selected">English</option>
+
+                <option value="zh-tw" >繁體中文</option>
+
+                <option value="zh-cn" >简体中文</option>
+
+                <option value="ja" >日本語</option>
+
+                <option value="ko-kr" >한국어</option>
+
+                <option value="fa" >فارسی</option>
+
+                <option value="ar-sa" >السعودية</option>
+
+        </select>-->
+    </div>
+
+    <h1 class="title" id="title">
+        <a href="/">Fukou-Da!</a>
+    </h1>
+
+    <div class="list-wrapper" id="more-disk-div">
+        <div class="list-container">
+            <div class="list-header-container">
+                <div class="more-disk">
+
+                    <a href="/novel/" >Novelas</a>
+
+                    <a href="/ani/"  now>Anime</a>
+
+                    <a href="/ani2/" >Anime 2</a>
+
+                    <a href="/ani3/" >Anime 3</a>
+
+                    <a href="/ani4/" >Anime 4</a>
+
+                    <a href="/ani5/" >Anime 5</a>
+
+                    <a href="/Gomu1/" >One Piece 1</a>
+
+                    <a href="/anilat/" >Anime en Latino</a>
+
+                    <a href="/anilat2/" >Anime en Latino 2</a>
+
+                    <a href="/anilat3/" >Anime en Latino 3</a>
+
+                    <a href="/pelisani/" >Peliculas Anime</a>
+
+                    <a href="/Pelislat/" >Peliculas en Latino</a>
+
+                    <a href="/pelis/" >Peliculas&Series</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="list-wrapper" id="list-div">
+        <div class="list-container">
+            <div class="list-header-container">
+                <h3 class="table-header"><a href="/">Home</a> / <a href="/ani/">Anime</a> / <a href="/ani/Anime/">Anime</a> / <a href="">A</a></h3>
+            </div>
+            <div class="list-body-container">
+
+
+
+
+
+                <table class="list-table" id="list-table">
+                    <tr id="tr0">
+                        <th class="file">
+                            <a id="file_a0" fileid="012NFFNNLECGWNQ6VW5BHKG5KF3GLYXJJX" onclick="sortby('a');">File</a>
+
+                            &nbsp;&nbsp;&nbsp;
+                            <label><input type="checkbox" id="originalpic">OriginalPic</label>
+                            <button onclick="showthumbnails(this);">Thumbnails</button>
+
+                            &nbsp;
+                            <button onclick="CopyAllDownloadUrl('.download');">CopyAllDownloadUrl</button>
+                        </th>
+                        <th class="updated_at"><a onclick="sortby('time');">EditTime</a></th>
+                        <th class="size"><a onclick="sortby('size');">Size</a></th>
+                    </tr>
+                    <!-- Dirs -->
+
+                    <tr data-to id="tr1">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a1" name="folderlist" href="A Channel/" fileid="012NFFNNK4KP5QY23YOBEJJAKCPQZVCTDD">A Channel</a>
+                        </td>
+                        <td class="updated_at" id="folder_time1">2021-11-09 20:11:34</td>
+                        <td class="size" id="folder_size1">2.94 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr2">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a2" name="folderlist" href="Aa Megami-sama/" fileid="012NFFNNJSNI2R7TKEMFEYUUT2Q5YSXGSG">Aa Megami-sama</a>
+                        </td>
+                        <td class="updated_at" id="folder_time2">2021-11-09 20:10:51</td>
+                        <td class="size" id="folder_size2">3.6 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr3">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a3" name="folderlist" href="Aa Megami-sama Sorezore no Tsubasa/" fileid="012NFFNNMXAO45M3VMTBEKD4GSJJQC6KYI">Aa Megami-sama Sorezore no Tsubasa</a>
+                        </td>
+                        <td class="updated_at" id="folder_time3">2021-12-11 18:19:31</td>
+                        <td class="size" id="folder_size3">3.47 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr4">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a4" name="folderlist" href="Aa Megami-sama Tatakau Tsubasa/" fileid="012NFFNNJFKBMMWUGVHVCZ3RIDBXA22N6X">Aa Megami-sama Tatakau Tsubasa</a>
+                        </td>
+                        <td class="updated_at" id="folder_time4">2021-11-09 20:11:14</td>
+                        <td class="size" id="folder_size4">438.02 MB</td>
+                    </tr>
+
+                    <tr data-to id="tr5">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a5" name="folderlist" href="Aa! Megami-sama!/" fileid="012NFFNNPKPTJLPBUFVBDY3BEEJGGNSE27">Aa! Megami-sama!</a>
+                        </td>
+                        <td class="updated_at" id="folder_time5">2022-01-28 17:24:11</td>
+                        <td class="size" id="folder_size5">1.47 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr6">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a6" name="folderlist" href="Aa! Megami-sama! Itsumo Futari de/" fileid="012NFFNNOCWKLCR47QXFGJC42FRZSXVIXD">Aa! Megami-sama! Itsumo Futari de</a>
+                        </td>
+                        <td class="updated_at" id="folder_time6">2022-01-28 17:39:01</td>
+                        <td class="size" id="folder_size6">820.6 MB</td>
+                    </tr>
+
+                    <tr data-to id="tr7">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a7" name="folderlist" href="Abenobashi Mahou Shoutengai/" fileid="012NFFNNLFDAGD7AJLBBBJ4RLYVAZUJH6Y">Abenobashi Mahou Shoutengai</a>
+                        </td>
+                        <td class="updated_at" id="folder_time7">2022-01-28 17:59:35</td>
+                        <td class="size" id="folder_size7">2.14 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr8">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a8" name="folderlist" href="Absolute Duo/" fileid="012NFFNNIRWP2DVPNMUVEZS4B4MKKAIK6F">Absolute Duo</a>
+                        </td>
+                        <td class="updated_at" id="folder_time8">2021-11-09 20:09:58</td>
+                        <td class="size" id="folder_size8">12.78 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr9">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a9" name="folderlist" href="Accel World/" fileid="012NFFNNKPSLIX2QWF3VHJYOUQG5LQHMND">Accel World</a>
+                        </td>
+                        <td class="updated_at" id="folder_time9">2021-12-10 11:13:17</td>
+                        <td class="size" id="folder_size9">8.31 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr10">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a10" name="folderlist" href="Acion Heroine Cheer Fruits/" fileid="012NFFNNJMI2SQNAIDPRCIMC7ST2JLKXID">Acion Heroine Cheer Fruits</a>
+                        </td>
+                        <td class="updated_at" id="folder_time10">2021-12-10 13:22:23</td>
+                        <td class="size" id="folder_size10">3.97 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr11">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a11" name="folderlist" href="Adachi to Shimamura/" fileid="012NFFNNO5WYEAEWDO75C22TZESJ4HKC6T">Adachi to Shimamura</a>
+                        </td>
+                        <td class="updated_at" id="folder_time11">2021-12-10 14:28:09</td>
+                        <td class="size" id="folder_size11">8.33 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr12">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a12" name="folderlist" href="Aho Girl/" fileid="012NFFNNLOAAXPVB3J2VFKCRH2FYC2G2X5">Aho Girl</a>
+                        </td>
+                        <td class="updated_at" id="folder_time12">2022-01-28 18:25:53</td>
+                        <td class="size" id="folder_size12">5.41 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr13">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a13" name="folderlist" href="Ai Yori Aoshi/" fileid="012NFFNNPTDYNX3Z3LAFC3VB6CQQLQVVA2">Ai Yori Aoshi</a>
+                        </td>
+                        <td class="updated_at" id="folder_time13">2022-01-28 18:31:34</td>
+                        <td class="size" id="folder_size13">4.04 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr14">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a14" name="folderlist" href="Ai Yori Aoshi Enishi/" fileid="012NFFNNOJJJNI7VYXXBAK4A7JOMRLDR6K">Ai Yori Aoshi Enishi</a>
+                        </td>
+                        <td class="updated_at" id="folder_time14">2022-01-28 18:36:00</td>
+                        <td class="size" id="folder_size14">2.02 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr15">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a15" name="folderlist" href="AIKA/" fileid="012NFFNNNKQ74HAQNEYJA2FTXC55ZECUO5">AIKA</a>
+                        </td>
+                        <td class="updated_at" id="folder_time15">2022-01-31 21:58:08</td>
+                        <td class="size" id="folder_size15">1.18 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr16">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a16" name="folderlist" href="Air In Summer/" fileid="012NFFNNLPI2FIUSI2ORAYSM23EHMCDGVT">Air In Summer</a>
+                        </td>
+                        <td class="updated_at" id="folder_time16">2022-01-28 18:45:02</td>
+                        <td class="size" id="folder_size16">339.09 MB</td>
+                    </tr>
+
+                    <tr data-to id="tr17">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a17" name="folderlist" href="Air Master/" fileid="012NFFNNOHNKHWQTURW5ELK65J53RJQYG6">Air Master</a>
+                        </td>
+                        <td class="updated_at" id="folder_time17">2022-01-28 18:49:16</td>
+                        <td class="size" id="folder_size17">6.01 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr18">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a18" name="folderlist" href="Air TV/" fileid="012NFFNNJYHA6Q64AWMFGK7ONYRPNJFKEF">Air TV</a>
+                        </td>
+                        <td class="updated_at" id="folder_time18">2022-01-28 18:54:01</td>
+                        <td class="size" id="folder_size18">2.17 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr19">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a19" name="folderlist" href="Ajin/" fileid="012NFFNNLEKK5J6PI56FG2KL36I3JYUC6V">Ajin</a>
+                        </td>
+                        <td class="updated_at" id="folder_time19">2022-01-31 22:02:18</td>
+                        <td class="size" id="folder_size19">0 B</td>
+                    </tr>
+
+                    <tr data-to id="tr20">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a20" name="folderlist" href="Akame ga Kill!/" fileid="012NFFNNPP4F77BGU3P5HJWSJN65DDXNIO">Akame ga Kill!</a>
+                        </td>
+                        <td class="updated_at" id="folder_time20">2022-01-31 22:05:42</td>
+                        <td class="size" id="folder_size20">6.36 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr21">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a21" name="folderlist" href="Akane Maniax/" fileid="012NFFNNNECD2MDVASMVCK7JTQSCYDFMTI">Akane Maniax</a>
+                        </td>
+                        <td class="updated_at" id="folder_time21">2022-01-28 20:51:09</td>
+                        <td class="size" id="folder_size21">505.6 MB</td>
+                    </tr>
+
+                    <tr data-to id="tr22">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a22" name="folderlist" href="Akane-Iro ni Somaru Saka/" fileid="012NFFNNPTZFLJLZKDVFBYPACNOIPJ7RQZ">Akane-Iro ni Somaru Saka</a>
+                        </td>
+                        <td class="updated_at" id="folder_time22">2022-01-31 18:08:46</td>
+                        <td class="size" id="folder_size22">2 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr23">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a23" name="folderlist" href="Akatsuki no Yona/" fileid="012NFFNNMLPIKX5R52GJHIQCRQIOYY6AQ3">Akatsuki no Yona</a>
+                        </td>
+                        <td class="updated_at" id="folder_time23">2022-02-11 16:27:42</td>
+                        <td class="size" id="folder_size23">10.85 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr24">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a24" name="folderlist" href="Aki Sora/" fileid="012NFFNNJQSZOFOMD53ZDJ3QB3ZZONHU2V">Aki Sora</a>
+                        </td>
+                        <td class="updated_at" id="folder_time24">2022-01-31 18:10:19</td>
+                        <td class="size" id="folder_size24">1.76 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr25">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a25" name="folderlist" href="Akikan!/" fileid="012NFFNNMFBJF2HQULG5EKKUYW2AVUQF4V">Akikan!</a>
+                        </td>
+                        <td class="updated_at" id="folder_time25">2022-01-31 18:11:02</td>
+                        <td class="size" id="folder_size25">1.98 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr26">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a26" name="folderlist" href="Akkun to Kanojo/" fileid="012NFFNNKE4ZEN36POG5FL72C6ZFZRW6YT">Akkun to Kanojo</a>
+                        </td>
+                        <td class="updated_at" id="folder_time26">2022-02-01 20:41:41</td>
+                        <td class="size" id="folder_size26">5.7 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr27">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a27" name="folderlist" href="Aku no Hana/" fileid="012NFFNNO6ENZPFJEMFNBLQOHRT3TKIG5Y">Aku no Hana</a>
+                        </td>
+                        <td class="updated_at" id="folder_time27">2022-01-31 18:11:45</td>
+                        <td class="size" id="folder_size27">3.29 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr28">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a28" name="folderlist" href="Akuma no Riddle/" fileid="012NFFNNOCYBUDNIF7EBC26KCMXHC5M67M">Akuma no Riddle</a>
+                        </td>
+                        <td class="updated_at" id="folder_time28">2022-01-31 18:12:26</td>
+                        <td class="size" id="folder_size28">13 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr29">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a29" name="folderlist" href="Aldnoah.Zero/" fileid="012NFFNNKXYX7NGDY7GFD2JI2T7JGCUS2Q">Aldnoah.Zero</a>
+                        </td>
+                        <td class="updated_at" id="folder_time29">2022-01-31 18:13:21</td>
+                        <td class="size" id="folder_size29">3.33 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr30">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a30" name="folderlist" href="Aldnoah.Zero 2/" fileid="012NFFNNMGKJ6B5YIB4BHZA65NZB6MNBQG">Aldnoah.Zero 2</a>
+                        </td>
+                        <td class="updated_at" id="folder_time30">2022-01-31 18:13:29</td>
+                        <td class="size" id="folder_size30">3.18 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr31">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a31" name="folderlist" href="Alice or Alice/" fileid="012NFFNNPSWG5WO2Z635F262DSPYWOOXJB">Alice or Alice</a>
+                        </td>
+                        <td class="updated_at" id="folder_time31">2022-01-31 18:14:10</td>
+                        <td class="size" id="folder_size31">1.03 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr32">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a32" name="folderlist" href="Alice to Zouroku BD/" fileid="012NFFNNNYDJMV2MND2FCLVXLQOO2GIDPF">Alice to Zouroku BD</a>
+                        </td>
+                        <td class="updated_at" id="folder_time32">2022-01-31 18:14:19</td>
+                        <td class="size" id="folder_size32">12.5 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr33">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a33" name="folderlist" href="Alien9/" fileid="012NFFNNNYJ56LQH4AKVCIE6QCD7NBYYQL">Alien9</a>
+                        </td>
+                        <td class="updated_at" id="folder_time33">2022-01-31 18:14:40</td>
+                        <td class="size" id="folder_size33">1.24 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr34">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a34" name="folderlist" href="Allison and Lillia/" fileid="012NFFNNJLCN4LVLPXCZFJXNG27HZLTVR4">Allison and Lillia</a>
+                        </td>
+                        <td class="updated_at" id="folder_time34">2022-01-31 18:15:06</td>
+                        <td class="size" id="folder_size34">8.75 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr35">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a35" name="folderlist" href="Amaama to Inazuma/" fileid="012NFFNNL7RZKZIRFG4BHJYMZ32F7PSQD6">Amaama to Inazuma</a>
+                        </td>
+                        <td class="updated_at" id="folder_time35">2022-01-31 18:15:18</td>
+                        <td class="size" id="folder_size35">6.36 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr36">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a36" name="folderlist" href="Amaenaideyo Katsu/" fileid="012NFFNNLBLL7PJ4EEPRE2OH3R7PMSZUCJ">Amaenaideyo Katsu</a>
+                        </td>
+                        <td class="updated_at" id="folder_time36">2022-01-31 18:15:31</td>
+                        <td class="size" id="folder_size36">2.16 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr37">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a37" name="folderlist" href="Amaenaideyo!/" fileid="012NFFNNLHHJ26URQPMVBJ67RAGKKP4O5J">Amaenaideyo!</a>
+                        </td>
+                        <td class="updated_at" id="folder_time37">2022-01-31 18:15:43</td>
+                        <td class="size" id="folder_size37">2.17 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr38">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a38" name="folderlist" href="Amagami SS/" fileid="012NFFNNPECMUKW7NPEVF35XI3MLY5CH2L">Amagami SS</a>
+                        </td>
+                        <td class="updated_at" id="folder_time38">2022-01-31 18:15:52</td>
+                        <td class="size" id="folder_size38">6.44 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr39">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a39" name="folderlist" href="Amagami SS Plus/" fileid="012NFFNNJESH5TYPV6PZELWCUEHGDQ24SJ">Amagami SS Plus</a>
+                        </td>
+                        <td class="updated_at" id="folder_time39">2022-01-31 18:16:01</td>
+                        <td class="size" id="folder_size39">3.17 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr40">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a40" name="folderlist" href="Amagi Brilliant Park/" fileid="012NFFNNMBULSHZ6CHZJALUZVW55ONL4TH">Amagi Brilliant Park</a>
+                        </td>
+                        <td class="updated_at" id="folder_time40">2022-01-31 18:16:10</td>
+                        <td class="size" id="folder_size40">3.6 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr41">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a41" name="folderlist" href="Android Ana Maico 2010/" fileid="012NFFNNLPPN5YYIJ7HNEIVYNHIST7I5MY">Android Ana Maico 2010</a>
+                        </td>
+                        <td class="updated_at" id="folder_time41">2022-01-31 18:16:19</td>
+                        <td class="size" id="folder_size41">2.1 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr42">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a42" name="folderlist" href="Angel beats!/" fileid="012NFFNNNI45SIGEGO6BEIHHL64QVUDDQL">Angel beats!</a>
+                        </td>
+                        <td class="updated_at" id="folder_time42">2022-01-31 18:16:27</td>
+                        <td class="size" id="folder_size42">3.15 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr43">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a43" name="folderlist" href="Ano Hi Mita Hana no Namae o Boku-tachi wa Mada Shiranai/" fileid="012NFFNNIAQJENEWXPXZBK5SK3KUEDUC2N">Ano Hi Mita Hana no Namae o Boku-tachi wa Mada Shiranai</a>
+                        </td>
+                        <td class="updated_at" id="folder_time43">2022-01-31 18:16:38</td>
+                        <td class="size" id="folder_size43">2.6 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr44">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a44" name="folderlist" href="Ano Natsu de Matteru/" fileid="012NFFNNNHS3LYG2J3BBFKDUACW5LLBVPM">Ano Natsu de Matteru</a>
+                        </td>
+                        <td class="updated_at" id="folder_time44">2022-01-10 12:05:16</td>
+                        <td class="size" id="folder_size44">3.93 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr45">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a45" name="folderlist" href="Ano Natsu de Matteru BD/" fileid="012NFFNNPZBL4DIND7LZCLUGB24FQPLFXZ">Ano Natsu de Matteru BD</a>
+                        </td>
+                        <td class="updated_at" id="folder_time45">2022-01-10 13:54:47</td>
+                        <td class="size" id="folder_size45">12.5 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr46">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a46" name="folderlist" href="Another/" fileid="012NFFNNPA7X2EYQLHOBEZRENJY6MMAQYB">Another</a>
+                        </td>
+                        <td class="updated_at" id="folder_time46">2022-01-10 19:45:45</td>
+                        <td class="size" id="folder_size46">3.13 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr47">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a47" name="folderlist" href="Another BD/" fileid="012NFFNNLDDZQRW2MP5RHYHOUM2X43OTQR">Another BD</a>
+                        </td>
+                        <td class="updated_at" id="folder_time47">2022-01-10 21:03:53</td>
+                        <td class="size" id="folder_size47">6.98 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr48">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a48" name="folderlist" href="Ansatsu Kyoushitsu/" fileid="012NFFNNMHM35RSZCITFH3NSBNQULD6HVJ">Ansatsu Kyoushitsu</a>
+                        </td>
+                        <td class="updated_at" id="folder_time48">2022-01-11 00:09:51</td>
+                        <td class="size" id="folder_size48">6.04 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr49">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a49" name="folderlist" href="Ao Haru Ride/" fileid="012NFFNNI2ZM62ZKODW5FJ5DTFB3IEL7FE">Ao Haru Ride</a>
+                        </td>
+                        <td class="updated_at" id="folder_time49">2022-01-11 16:32:33</td>
+                        <td class="size" id="folder_size49">3.39 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr50">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a50" name="folderlist" href="Ao Haru Ride BD/" fileid="012NFFNNMC3GT7RXXEIVCIBXOVQXV3KAE3">Ao Haru Ride BD</a>
+                        </td>
+                        <td class="updated_at" id="folder_time50">2022-01-11 17:44:32</td>
+                        <td class="size" id="folder_size50">6.45 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr51">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a51" name="folderlist" href="Ao No Exorcist/" fileid="012NFFNNPUSOWZ2UWS4FGZYKJSUHF5UVVV">Ao No Exorcist</a>
+                        </td>
+                        <td class="updated_at" id="folder_time51">2022-01-29 12:16:49</td>
+                        <td class="size" id="folder_size51">6.36 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr52">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a52" name="folderlist" href="Ao no Exorcist Kyoto Fujouou Hen/" fileid="012NFFNNPUMP5N6DACXZA22GMBMW65ZO62">Ao no Exorcist Kyoto Fujouou Hen</a>
+                        </td>
+                        <td class="updated_at" id="folder_time52">2022-01-29 12:17:52</td>
+                        <td class="size" id="folder_size52">3.82 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr53">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a53" name="folderlist" href="Ao no Kanata BD/" fileid="012NFFNNJP5H2QK6RRYRHJI2RXLF4I7MK6">Ao no Kanata BD</a>
+                        </td>
+                        <td class="updated_at" id="folder_time53">2022-01-11 20:03:51</td>
+                        <td class="size" id="folder_size53">9.36 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr54">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a54" name="folderlist" href="Aoi Bungaku/" fileid="012NFFNNO3KIC6GPAMIBA2RPPBAZEUVR4S">Aoi Bungaku</a>
+                        </td>
+                        <td class="updated_at" id="folder_time54">2022-01-11 23:29:18</td>
+                        <td class="size" id="folder_size54">2.05 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr55">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a55" name="folderlist" href="Aoki Hagane no Arpeggio Ars Nova/" fileid="012NFFNNMQSX6NBR5FO5DL3QQKL3XYYTFP">Aoki Hagane no Arpeggio Ars Nova</a>
+                        </td>
+                        <td class="updated_at" id="folder_time55">2022-01-12 00:15:04</td>
+                        <td class="size" id="folder_size55">7.62 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr56">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a56" name="folderlist" href="Appare-Ranman!/" fileid="012NFFNNN3IRJOYATW7FC2FZHISMJJJ6PQ">Appare-Ranman!</a>
+                        </td>
+                        <td class="updated_at" id="folder_time56">2022-01-13 18:35:13</td>
+                        <td class="size" id="folder_size56">9.75 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr57">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a57" name="folderlist" href="Aquarian Age/" fileid="012NFFNNPEBYA7FZERSFG2ZNFVWCYBWRFT">Aquarian Age</a>
+                        </td>
+                        <td class="updated_at" id="folder_time57">2022-01-13 23:23:38</td>
+                        <td class="size" id="folder_size57">2.58 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr58">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a58" name="folderlist" href="Aquarion Evol/" fileid="012NFFNNNML2PU4ZPVZBAKCE4JG3QUZIAA">Aquarion Evol</a>
+                        </td>
+                        <td class="updated_at" id="folder_time58">2022-01-14 00:36:35</td>
+                        <td class="size" id="folder_size58">19.55 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr59">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a59" name="folderlist" href="Araburu Kisetsu no Otome-domo yo/" fileid="012NFFNNOQH7I4D3DTCRBJNJMXKDLUD3GS">Araburu Kisetsu no Otome-domo yo</a>
+                        </td>
+                        <td class="updated_at" id="folder_time59">2022-01-29 12:19:04</td>
+                        <td class="size" id="folder_size59">3.57 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr60">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a60" name="folderlist" href="Arakawa Under the Bridge/" fileid="012NFFNNKDN6YEQDY5DFDJBWO2RSKVTLPY">Arakawa Under the Bridge</a>
+                        </td>
+                        <td class="updated_at" id="folder_time60">2022-01-14 20:21:53</td>
+                        <td class="size" id="folder_size60">3.05 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr61">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a61" name="folderlist" href="Arakawa Under the Bridge x Bridge/" fileid="012NFFNNOPTCZEZ2X5TJHICF6HDEAJPDUY">Arakawa Under the Bridge x Bridge</a>
+                        </td>
+                        <td class="updated_at" id="folder_time61">2022-01-14 21:07:27</td>
+                        <td class="size" id="folder_size61">3.16 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr62">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a62" name="folderlist" href="Arcana Famiglia/" fileid="012NFFNNIK2ANONKTPYNAYGITBRFQPM2EB">Arcana Famiglia</a>
+                        </td>
+                        <td class="updated_at" id="folder_time62">2022-01-14 22:00:18</td>
+                        <td class="size" id="folder_size62">3.21 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr63">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a63" name="folderlist" href="Area no Kishi/" fileid="012NFFNNI5TBV6Z5TNBZFJBDC3GPD2HVSN">Area no Kishi</a>
+                        </td>
+                        <td class="updated_at" id="folder_time63">2022-01-04 21:23:26</td>
+                        <td class="size" id="folder_size63">9.22 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr64">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a64" name="folderlist" href="Aria the Animation BD/" fileid="012NFFNNOHBFHDBYPVPVAK55XNOG63CKUI">Aria the Animation BD</a>
+                        </td>
+                        <td class="updated_at" id="folder_time64">2022-01-04 23:52:54</td>
+                        <td class="size" id="folder_size64">6.69 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr65">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a65" name="folderlist" href="Arifureta Shokugyou de Sekai Saikyou/" fileid="012NFFNNMT24EJ3LUYCVBJBEF74YEOYCVA">Arifureta Shokugyou de Sekai Saikyou</a>
+                        </td>
+                        <td class="updated_at" id="folder_time65">2022-01-05 01:35:05</td>
+                        <td class="size" id="folder_size65">11.67 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr66">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a66" name="folderlist" href="Arte/" fileid="012NFFNNNR4Q5UMZYOBVC3VKPPIIYJLCTQ">Arte</a>
+                        </td>
+                        <td class="updated_at" id="folder_time66">2022-01-05 17:13:49</td>
+                        <td class="size" id="folder_size66">3.22 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr67">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a67" name="folderlist" href="Asobi Asobase BD/" fileid="012NFFNNPSZ6GZWX3RZBCLG5BPDFEG3HAG">Asobi Asobase BD</a>
+                        </td>
+                        <td class="updated_at" id="folder_time67">2022-01-05 18:05:56</td>
+                        <td class="size" id="folder_size67">23.78 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr68">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a68" name="folderlist" href="Asobi ni Iku yo/" fileid="012NFFNNIGBLUE5HBHBVC3XOBC6PTVPF5X">Asobi ni Iku yo</a>
+                        </td>
+                        <td class="updated_at" id="folder_time68">2022-01-06 00:18:39</td>
+                        <td class="size" id="folder_size68">8.4 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr69">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a69" name="folderlist" href="Assassins Pride/" fileid="012NFFNNLNJWYCONCPWJEIL5REQZQJQUOT">Assassins Pride</a>
+                        </td>
+                        <td class="updated_at" id="folder_time69">2022-01-06 02:36:44</td>
+                        <td class="size" id="folder_size69">4.24 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr70">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a70" name="folderlist" href="Assault Lily Bouquet/" fileid="012NFFNNPVEUDC4LXEKZGLOIMCWFKQBKHD">Assault Lily Bouquet</a>
+                        </td>
+                        <td class="updated_at" id="folder_time70">2022-01-06 13:29:22</td>
+                        <td class="size" id="folder_size70">11.9 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr71">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a71" name="folderlist" href="Asu no Yoichi!/" fileid="012NFFNNOQGMX3AVP6KZBLJ7WZYTYWO652">Asu no Yoichi!</a>
+                        </td>
+                        <td class="updated_at" id="folder_time71">2022-01-06 16:51:19</td>
+                        <td class="size" id="folder_size71">3.76 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr72">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a72" name="folderlist" href="Asura Cryin II/" fileid="012NFFNNKIAX7VBFDVFRA2XGTSDF35KNK5">Asura Cryin II</a>
+                        </td>
+                        <td class="updated_at" id="folder_time72">2022-01-06 18:06:08</td>
+                        <td class="size" id="folder_size72">2.15 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr73">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a73" name="folderlist" href="Asura Cryin’/" fileid="012NFFNNPFSG36KUDSBNHIJGRTIFG7GOH3">Asura Cryin’</a>
+                        </td>
+                        <td class="updated_at" id="folder_time73">2022-01-06 18:47:32</td>
+                        <td class="size" id="folder_size73">2.15 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr74">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a74" name="folderlist" href="Avenger/" fileid="012NFFNNJIN6N2SPNWJFBZZSDIZNXXRBGO">Avenger</a>
+                        </td>
+                        <td class="updated_at" id="folder_time74">2022-01-06 19:28:03</td>
+                        <td class="size" id="folder_size74">2.2 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr75">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a75" name="folderlist" href="Ayakashi/" fileid="012NFFNNK6CCGWIP335RDIM467E55WDKMY">Ayakashi</a>
+                        </td>
+                        <td class="updated_at" id="folder_time75">2022-01-06 20:08:47</td>
+                        <td class="size" id="folder_size75">2.07 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr76">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a76" name="folderlist" href="Ayashi no Ceres/" fileid="012NFFNNL7EBUM64VOKFCKRP5VTTZAPBQ3">Ayashi no Ceres</a>
+                        </td>
+                        <td class="updated_at" id="folder_time76">2022-01-31 18:35:42</td>
+                        <td class="size" id="folder_size76">3.67 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr77">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a77" name="folderlist" href="Azur Lane/" fileid="012NFFNNJPTYOPXS2NYFE3JSSJY5UAOAY5">Azur Lane</a>
+                        </td>
+                        <td class="updated_at" id="folder_time77">2022-01-06 20:47:20</td>
+                        <td class="size" id="folder_size77">7.17 GB</td>
+                    </tr>
+
+                    <tr data-to id="tr78">
+                        <td class="file">
+
+                            <ion-icon name="folder"></ion-icon>
+                            <a id="file_a78" name="folderlist" href="Azur Lane BD/" fileid="012NFFNNN7AGL3GRSRHNDKC4PBG5XGYGQN">Azur Lane BD</a>
+                        </td>
+                        <td class="updated_at" id="folder_time78">2022-01-06 22:50:48</td>
+                        <td class="size" id="folder_size78">15.26 GB</td>
+                    </tr>
+
+
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="mask" class="mask" style="display:none;"></div>
+
+
+    <div id="login_div" class="operatediv" style="display:none">
+        <div style="margin:50px">
+            <a onclick="operatediv_close('login')" class="operatediv_close">Close</a>
+            <center>
+                <form action="?login=admin" method="post" onsubmit="return sha1loginpass(this);">
+                    <input id="login_input" name="password1" type="password" placeholder="Input Password">
+                    <input name="timestamp" type="hidden" value="">
+                    <input type="submit" value="Login">
+                </form>
+            </center>
+        </div>
+    </div>
+
+    <div style="color: rgba(247,247,249,0);">2022-10-10 15:37:25 Monday 161.10.150.93 Runningtime:1.081s Mem:555.01 KB</div>
+</body>
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function changelanguage(str)
+    {
+        if (str=='Language') str = '';
+        var expd = new Date();
+        expd.setTime(expd.getTime()+(2*60*60*1000));
+        var expires = "expires="+expd.toGMTString();
+        document.cookie='language='+str+'; path=/; '+expires;
+        location.href = location.href;
+    }
+
+    function login() {
+        document.getElementById('mask').style.display='';
+            //document.getElementById('mask').style.width=document.documentElement.scrollWidth+'px';
+        document.getElementById('mask').style.height=document.documentElement.scrollHeight<window.innerHeight?window.innerHeight:document.documentElement.scrollHeight+'px';
+        document.getElementById('login_div').style.display='';
+        document.getElementById('login_div').style.left=(document.body.clientWidth-document.getElementById('login_div').offsetWidth)/2 +'px';
+        document.getElementById('login_div').style.top=(window.innerHeight-document.getElementById('login_div').offsetHeight)/2+document.body.scrollTop +'px';
+        document.getElementById('login_input').focus();
+    }
+    function sha1loginpass(f) {
+        if (f.password1.value=="") return false;
+        try {
+            timestamp = new Date().getTime() + "";
+            timestamp = timestamp.substr(0, timestamp.length-3);
+            f.timestamp.value = timestamp;
+            f.password1.value = sha1(timestamp + "" + f.password1.value);
+            return true;
+        } catch {
+            //alert("sha1.js not loaded.");
+            if (confirm("sha1.js not loaded.\n\nLoad from program?")) loadjs("?jsFile=sha1.min.js");
+            return false;
+        }
+    }
+    function loadjs(url) {
+        var xhr = new XMLHttpRequest;
+        xhr.open("GET", url);
+        xhr.onload = function(e) {
+            if (xhr.status==200) {
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.text = xhr.responseText;
+                document.body.appendChild(script);
+            } else {
+                console.log(xhr.response);
+            }
+        }
+        xhr.send(null);
+    }
+
+
+    var nowtime= new Date();
+    var timezone = 0-nowtime.getTimezoneOffset()/60;
+    var expd = new Date();
+    expd.setTime(expd.getTime()+(2*60*60*1000));
+    var expires = "expires="+expd.toGMTString();
+    document.cookie="timezone="+timezone+"; path=/; "+expires;
+    if (timezone!=-5) {
+        //alert('Your timezone is '+timezone+', reload local timezone.');
+        location.href=location.href;
+    }
+
+
+
+
+
+
+
+    function showthumbnails(obj) {
+        images = ['ico', 'bmp', 'gif', 'jpg', 'jpeg', 'jpe', 'jfif', 'tif', 'tiff', 'png', 'heic', 'webp', ];
+        var files=document.getElementsByName('filelist');
+        for ($i=0;$i<files.length;$i++) {
+            str=files[$i].innerText;
+            if (str.substr(-1)==' ') str=str.substr(0,str.length-1);
+            if (!str) continue;
+            strarry=str.split('.');
+            ext=strarry[strarry.length-1].toLowerCase();
+            if (images.indexOf(ext)>-1) {
+                var url=files[$i].href;
+                url=url.substr(0,url.length-8);
+                if (document.getElementById('originalpic').checked==true) {
+                    files[$i].parentNode.parentNode.innerHTML='<td colspan="3"><img src="'+url+'" alt="'+str+'" onload="if (this.offsetWidth>document.getElementById(\'list-div\').offsetWidth) this.style.width=\'100%\';"></td>';
+                    $i--;
+                } else {
+                    url+='?thumbnails';
+                    get_thumbnails_url(url, str, files[$i]);
+                }
+            }
+        }
+        obj.disabled='disabled';
+    }
+    function get_thumbnails_url(url, name, filea) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.send('');
+        xhr.onload = function(e){
+            if (xhr.status==200) {
+                if (xhr.responseText!='') filea.innerHTML='<img src="'+xhr.responseText+'" alt="'+name+'">';
+            } else console.log(xhr.status+'\n'+xhr.responseText);
+        }
+    }
+
+
+
+    var sort=0;
+    function sortby(string) {
+        if (string=='a') if (sort!=0) {
+            for (i = 1; i <= 78; i++) document.getElementById('tr'+i).parentNode.insertBefore(document.getElementById('tr'+i),document.getElementById('tr'+(i-1)).nextSibling);
+            sort=0;
+            return;
+        } else return;
+        sort1=sort;
+        sortby('a');
+        sort=sort1;
+        var a=[];
+        for (i = 1; i <= 78; i++) {
+            a[i]=i;
+            if (!!document.getElementById('folder_'+string+i)) {
+                var td1=document.getElementById('folder_'+string+i);
+                for (j = 1; j < i; j++) {
+                    if (!!document.getElementById('folder_'+string+a[j])) {
+                        var c=false;
+                        if (string=='time') if (sort==-1) {
+                            c=(td1.innerText < document.getElementById('folder_'+string+a[j]).innerText);
+                        } else {
+                            c=(td1.innerText > document.getElementById('folder_'+string+a[j]).innerText);
+                        }
+                        if (string=='size') if (sort==2) {
+                            c=(size_reformat(td1.innerText) < size_reformat(document.getElementById('folder_'+string+a[j]).innerText));
+                        } else {
+                            c=(size_reformat(td1.innerText) > size_reformat(document.getElementById('folder_'+string+a[j]).innerText));
+                        }
+                        if (c) {
+                            document.getElementById('tr'+i).parentNode.insertBefore(document.getElementById('tr'+i),document.getElementById('tr'+a[j]));
+                            for (k = i; k > j; k--) {
+                                a[k]=a[k-1];
+                            }
+                            a[j]=i;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (!!document.getElementById('file_'+string+i)) {
+                var td1=document.getElementById('file_'+string+i);
+                for (j = 1; j < i; j++) {
+                    if (!!document.getElementById('file_'+string+a[j])) {
+                        var c=false;
+                        if (string=='time') if (sort==-1) {
+                            c=(td1.innerText < document.getElementById('file_'+string+a[j]).innerText);
+                        } else {
+                            c=(td1.innerText > document.getElementById('file_'+string+a[j]).innerText);
+                        }
+                        if (string=='size') if (sort==2) {
+                            c=(size_reformat(td1.innerText) < size_reformat(document.getElementById('file_'+string+a[j]).innerText));
+                        } else {
+                            c=(size_reformat(td1.innerText) > size_reformat(document.getElementById('file_'+string+a[j]).innerText));
+                        }
+                        if (c) {
+                            document.getElementById('tr'+i).parentNode.insertBefore(document.getElementById('tr'+i),document.getElementById('tr'+a[j]));
+                            for (k = i; k > j; k--) {
+                                a[k]=a[k-1];
+                            }
+                            a[j]=i;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if (string=='time') if (sort==-1) {
+            sort=1;
+        } else {
+            sort=-1;
+        }
+        if (string=='size') if (sort==2) {
+            sort=-2;
+        } else {
+            sort=2;
+        }
+    }
+    function size_reformat(str) {
+        if (str.substr(-1)==' ') str=str.substr(0,str.length-1);
+        if (str.substr(-2)=='TB') num=str.substr(0,str.length-3)*1024*1024*1024*1024;
+        if (str.substr(-2)=='GB') num=str.substr(0,str.length-3)*1024*1024*1024;
+        if (str.substr(-2)=='MB') num=str.substr(0,str.length-3)*1024*1024;
+        if (str.substr(-2)=='KB') num=str.substr(0,str.length-3)*1024;
+        if (str.substr(-2)==' B') num=str.substr(0,str.length-2);
+        return num;
+    }
+
+
+    function CopyAllDownloadUrl(str) {
+        var tmptextarea=document.createElement('textarea');
+        document.body.appendChild(tmptextarea);
+        tmptextarea.setAttribute('style','position:absolute;left:-100px;width:0px;height:0px;');
+        document.querySelectorAll(str).forEach(function (e) {
+            tmptextarea.innerHTML+=e.href+"\r\n";
+        });
+        tmptextarea.select();
+        tmptextarea.setSelectionRange(0, tmptextarea.value.length);
+        document.execCommand("copy");
+        alert(tmptextarea.innerHTML+"Success");
+    }
+
+
+
+
+
+    function operatediv_close(operate) {
+        document.getElementById(operate+'_div').style.display='none';
+        document.getElementById('mask').style.display='none';
+    }
+
+
+</script>
+<script src="https://www.unpkg.com/ionicons@6.0.1/dist/ionicons.js"></script>
+<script src="?jsFile=sha1.min.js"></script>
+
+</html>
